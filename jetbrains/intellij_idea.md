@@ -1,6 +1,7 @@
 # **[IntelliJ Idea](https://www.jetbrains.com/idea/)**
 
-Contents :
+## Contents :
+
 - [Add Project Module](#add-project-module)
   - New Module
   - From Existing Source
@@ -13,7 +14,7 @@ Contents :
 
 ---
 
-## Add Project Module
+## Add Project Module [:arrow_up:](#contents)
 
 Useful do use an unique project for different services.
 
@@ -37,7 +38,7 @@ TBD
 
 ---
 
-## Create Multiple Run Configurations
+## Create Multiple Run Configurations [:arrow_up:](#contents)
 
 Useful for multiple project profiles, or to run more instance of the same service at different ports.
 
@@ -51,7 +52,7 @@ Useful for multiple project profiles, or to run more instance of the same servic
 
 ---
 
-## Enable Livereload
+## Enable Livereload [:arrow_up:](#contents)
 
 Useful for Spring Dev Tools
 
@@ -63,7 +64,7 @@ Useful for Spring Dev Tools
 
 ---
 
-## Import Project
+## Import Project [:arrow_up:](#contents)
 
 ####  Maven
 
@@ -76,7 +77,7 @@ Useful for Spring Dev Tools
 
 ---
 
-## Set Folders Type
+## Set Folders Type [:arrow_up:](#contents)
 
 Useful to add test and resources folders.
 
@@ -91,7 +92,7 @@ Useful to add test and resources folders.
 
 ---
 
-## Plugins
+## Plugins [:arrow_up:](#contents)
 
 Some useful plugins for java
 
