@@ -6,6 +6,7 @@
   - New Module
   - From Existing Source
 - [Create Multiple Run Configurations](#create-multiple-run-configurations)
+- [Docker](#docker)
 - [Enable Livereload](#enable-livereload)
 - [Import Project](#import-project)
   - Maven
@@ -14,7 +15,7 @@
 
 ---
 
-## Add Project Module [:arrow_up:](#contents)
+## Add Project Module
 
 Useful do use an unique project for different services.
 
@@ -38,7 +39,7 @@ TBD
 
 ---
 
-## Create Multiple Run Configurations [:arrow_up:](#contents)
+## Create Multiple Run Configurations
 
 Useful for multiple project profiles, or to run more instance of the same service at different ports.
 
@@ -52,7 +53,13 @@ Useful for multiple project profiles, or to run more instance of the same servic
 
 ---
 
-## Enable Livereload [:arrow_up:](#contents)
+## Docker
+
+TBD
+
+---
+
+## Enable Livereload
 
 Useful for Spring Dev Tools
 
@@ -64,7 +71,7 @@ Useful for Spring Dev Tools
 
 ---
 
-## Import Project [:arrow_up:](#contents)
+## Import Project
 
 ####  Maven
 
@@ -77,7 +84,7 @@ Useful for Spring Dev Tools
 
 ---
 
-## Set Folders Type [:arrow_up:](#contents)
+## Set Folders Type
 
 Useful to add test and resources folders.
 
@@ -92,7 +99,7 @@ Useful to add test and resources folders.
 
 ---
 
-## Plugins [:arrow_up:](#contents)
+## Plugins
 
 Some useful plugins for java
 
