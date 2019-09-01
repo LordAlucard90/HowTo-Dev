@@ -90,7 +90,7 @@ TBD
   sudo apt install lib32ncurses5 lib32stdc++6
   ```
 2. Extract to `~/android-sdk`
-3. Add `~/android-sdk/tools/bin` to [**PATH**](https://github.com/LordAlucard90/HowTo/path.md)
+3. Add `~/android-sdk/tools/bin` to [**PATH**](https://github.com/LordAlucard90/HowTo/blob/master/path.md)
 4. Download the latest [SDK Platform](https://developer.android.com/studio/releases/platforms)
 
   ```bash
