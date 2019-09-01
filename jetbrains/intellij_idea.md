@@ -74,9 +74,23 @@ TBD
 
 ## Configure Android SDK
 
+#### Full Android Studio
+
+TBD
+
+#### Android Studio Command Line Tools
+
 1. Download [Android Studio Command Line Tools](https://developer.android.com/studio#command-tools)
+
+  the tool requires JRE 8 ([install/change](../java/java.md))
+
+  requirement for Linux:
+
+  ```bash
+  sudo apt install lib32ncurses5 lib32stdc++6
+  ```
 2. Extract to `~/android-sdk`
-3. Add `~/android-sdk/tools/bin` to **PATH**
+3. Add `~/android-sdk/tools/bin` to [**PATH**](https://github.com/LordAlucard90/HowTo/path.md)
 4. Download the latest [SDK Platform](https://developer.android.com/studio/releases/platforms)
 
   ```bash
