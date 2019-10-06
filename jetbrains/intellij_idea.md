@@ -164,9 +164,11 @@ Useful for Spring Dev Tools
 1. `file` > `new` > `Project from Existing Sources`
 2. Select unzipped folder
 3. `Import project from external model` > `Maven`
-4. `next` until finish
-7. `build` > `Build Project`
-8. now you can run it
+4. If the project has multiple maven modules select `Search for projects recursively` > `next`
+5. Select the module(s) to import (by default all) > `next`
+6. Select the SDK version (you can also add one [Java](#add-java-jdk) or [Android](#configure-android-sdk)) > `next`
+7. `Finish`
+
 
 ---
 
@@ -182,6 +184,17 @@ Useful to add test and resources folders.
         - `Resources`
         - `Test Resources`
         - `Executed`
+
+Or
+
+- Right click on folder
+- `Mark directory as`
+      - `Sources`
+      - `Tests`
+      - `Resources`
+      - `Test Resources`
+      - `Executed`
+
 
 ---
 
