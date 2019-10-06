@@ -173,17 +173,19 @@ The `@ToString.Include` annotation allows to define:
 
 The `@ToString` annotation allows to define:
 - Print filed names: `includeFieldNames`, default true
-- Use getters to retrieve the value:`doNotUseGetters`, default false (are used)
+- Use getter (if exists) to retrieve the value:`doNotUseGetters`, default false (are used)
 - Print only some fields: `onlyExplicitlyIncluded`, default false
 - Call the super to string: `callSuper`, default false 
 - Exclude some fields: `exclude`, default {}
-- Define the filed: `of`, default {} (= "all")
+- Define the fields to use: `of`, default {} (= "all")
 
 ```java
 @ToString
 class ToStringBaseClass {
     static String staticString = "static";
     String baseString = "base";
+    @ToString.Exclude
+    String excludedString = "excluded";
 }
 
 @ToString(onlyExplicitlyIncluded = true)
@@ -233,9 +235,91 @@ class ToStringChildClass extends ToStringParentClass {
 }
 ```
 
+For this annotation can be specified:
+- Print filed names policy: `lombok.toString.includeFieldNames` = [true | false]
+- Use getters policy:`lombok.toString.doNotUseGetters` = [true | false]
+- Call super policy: `lombok.toString.callSuper` = [call | skip | warn]
+- Usage policy: `lombok.toString.flagUsage` = [warning | error]
 
 ## EqualsAndHashCode
-TBD
+This annotation creates automatically an implementation for the `equals` and `hasCode` methods. 
+By default will be included all the non static fields with name and value.
+
+The `@EqualsAndHashCode` annotation allows to define:
+- Use getter (if exists) to retrieve the value:`doNotUseGetters`, default false (are used)
+- Use only some fields: `onlyExplicitlyIncluded`, default false
+- Call the super method: `callSuper`, default false 
+- Exclude some fields: `exclude`, default {}
+- Define the fields to use: `of`, default {} (= "all")
+
+```java
+@EqualsAndHashCode
+class EqualsAndHashCodeBaseClass {
+    static String staticString = "static";
+    String baseString = "base";
+    @EqualsAndHashCode.Exclude
+    String excludedString = "excluded";
+}
+
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+class EqualsAndHashCodeOnlyExplicitClass {
+    @EqualsAndHashCode.Include
+    String fixedString = "included";
+    String varyingString;
+
+    public EqualsAndHashCodeOnlyExplicitClass(String varyingString) {
+        this.varyingString = varyingString;
+    }
+}
+
+@EqualsAndHashCode(doNotUseGetters = true)
+class EqualsAndHashCodeUsingGettersClass {
+    String fixedString = "included";
+
+    public EqualsAndHashCodeUsingGettersClass(String fixedString) {
+        this.fixedString = fixedString;
+    }
+
+    public String getFixedString() {
+        return "fixed";
+    }
+}
+
+@EqualsAndHashCode(of = {"fixedString"})
+class EqualsAndHashCodeOfClass {
+    String fixedString = "included";
+    String varyingString;
+
+    public EqualsAndHashCodeOfClass(String varyingString) {
+        this.varyingString = varyingString;
+    }
+}
+
+@EqualsAndHashCode(exclude = {"varyingString"})
+class EqualsAndHashCodeExcludeClass {
+    String fixedString = "included";
+    String varyingString;
+
+    public EqualsAndHashCodeExcludeClass(String varyingString) {
+        this.varyingString = varyingString;
+    }
+}
+
+@EqualsAndHashCode
+class EqualsAndHashCodeParentClass {
+    String parentString = "parent";
+}
+
+@EqualsAndHashCode(callSuper = true)
+class EqualsAndHashCodeChildClass extends EqualsAndHashCodeParentClass {
+    String childString = "child";
+}
+```
+
+For this annotation can be specified:
+- Use getters policy:`lombok.equalsAndHashCode.doNotUseGetters` = [true | false]
+- Call super policy: `lombok.equalsAndHashCode.callSuper` = [call | skip | warn]
+- Usage policy: `lombok.equalsAndHashCode.flagUsage` = [warning | error]
 
 ## Constructors
 TBD
