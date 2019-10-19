@@ -322,7 +322,107 @@ For this annotation can be specified:
 - Usage policy: `lombok.equalsAndHashCode.flagUsage` = [warning | error]
 
 ## Constructors
-TBD
+Are available three different annotation for the constructors: @NoArgsConstructor, @RequiredArgsConstructor, @AllArgsConstructor.
+
+These annotation creates automatically an implementation for the chosen `contructor`. 
+
+For RequiredArgsConstructor by default will be included all the non null and final not initialized fields.
+
+For AllArgsConstructor by default will be included all the fields except for final already initialized.
+
+These annotations allow to define:
+- The Visibility: `access`
+- The name of the static method used to call the constructor: `staticName`
+- The annotations on the constructor: `onConstructor`
+
+```java
+@NoArgsConstructor
+class NoArgsConstructor {
+    String string;
+
+    public NoArgsConstructor(String string) {
+        this.string = string;
+    }
+}
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+class NoArgsConstructorPrivate {
+    String string;
+}
+
+@NoArgsConstructor(staticName = "of")
+class NoArgsConstructorStaticName {
+    String string;
+}
+
+@RequiredArgsConstructor
+class RequiredArgsConstructor {
+    final int finalInt;
+    @NonNull
+    String requiredString;
+    Object optional;
+}
+
+@RequiredArgsConstructor
+class RequiredArgsConstructorNoSetFinal {
+    final int finalInt = 42;
+    @NonNull
+    String requiredString;
+}
+
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+class RequiredArgsConstructorPrivate {
+    final int finalInt;
+    @NonNull
+    String requiredString;
+    Object optional;
+}
+
+@RequiredArgsConstructor(staticName = "of")
+class RequiredArgsConstructorStaticName {
+    final int finalInt;
+    @NonNull
+    String requiredString;
+    Object optional;
+}
+
+@AllArgsConstructor
+class AllArgsConstructor {
+    final int finalInt;
+    @NonNull
+    String requiredString;
+    Object optional;
+}
+
+@AllArgsConstructor
+class AllArgsConstructorNoSetFinal {
+    final int finalInt = 42;
+    String requiredString;
+}
+
+
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+class AllArgsConstructorPrivate {
+    final int finalInt;
+    @NonNull
+    String requiredString;
+    Object optional;
+}
+
+@AllArgsConstructor(staticName = "of")
+class AllArgsConstructorStaticName {
+    final int finalInt;
+    @NonNull
+    String requiredString;
+    Object optional;
+}
+```
+
+For this annotation can be specified:
+- Usage policy:`lombok.[allArgsConstructor|requiredArgsConstructor|noArgsConstructor|anyConstructor].flagUsage` = [warning | error]
+- Call super policy: `lombok.equalsAndHashCode.callSuper` = [call | skip | warn]
+- Annotations copyable from fields to getters/setters: `lombok.copyableAnnotations` = [A list of fully qualified types]
+- Use `@java.beans.ConstructorProperties` annotation on generated constructors: `lombok.anyConstructor.addConstructorProperties` = [true | false]
 
 ## Data And Value
 TBD
