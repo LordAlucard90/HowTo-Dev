@@ -147,7 +147,7 @@ class AccessorsClass {
 }
 ```
 
-For this annotation can be specified:
+For these annotations can be specified:
 - Accessors chain (like builder): `lombok.accessors.chain` = [true | false]
 - Remove get/set prefixes: `lombok.accessors.fluent` = [true | false]
 - Remove a prefix variable name from the get/set method name: `lombok.accessors.prefix` += <PREFIX>
@@ -337,7 +337,7 @@ These annotations allow to define:
 
 ```java
 @NoArgsConstructor
-class NoArgsConstructor {
+class NoArgsConstructorClass {
     String string;
 
     public NoArgsConstructor(String string) {
@@ -346,17 +346,17 @@ class NoArgsConstructor {
 }
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-class NoArgsConstructorPrivate {
+class NoArgsConstructorPrivateClass {
     String string;
 }
 
 @NoArgsConstructor(staticName = "of")
-class NoArgsConstructorStaticName {
+class NoArgsConstructorStaticNameClass {
     String string;
 }
 
 @RequiredArgsConstructor
-class RequiredArgsConstructor {
+class RequiredArgsConstructorClass {
     final int finalInt;
     @NonNull
     String requiredString;
@@ -364,14 +364,14 @@ class RequiredArgsConstructor {
 }
 
 @RequiredArgsConstructor
-class RequiredArgsConstructorNoSetFinal {
+class RequiredArgsConstructorNoSetFinalClass {
     final int finalInt = 42;
     @NonNull
     String requiredString;
 }
 
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-class RequiredArgsConstructorPrivate {
+class RequiredArgsConstructorPrivateClass {
     final int finalInt;
     @NonNull
     String requiredString;
@@ -379,7 +379,7 @@ class RequiredArgsConstructorPrivate {
 }
 
 @RequiredArgsConstructor(staticName = "of")
-class RequiredArgsConstructorStaticName {
+class RequiredArgsConstructorStaticNameClass {
     final int finalInt;
     @NonNull
     String requiredString;
@@ -387,7 +387,7 @@ class RequiredArgsConstructorStaticName {
 }
 
 @AllArgsConstructor
-class AllArgsConstructor {
+class AllArgsConstructorClass {
     final int finalInt;
     @NonNull
     String requiredString;
@@ -395,14 +395,14 @@ class AllArgsConstructor {
 }
 
 @AllArgsConstructor
-class AllArgsConstructorNoSetFinal {
+class AllArgsConstructorNoSetFinalClass {
     final int finalInt = 42;
     String requiredString;
 }
 
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-class AllArgsConstructorPrivate {
+class AllArgsConstructorPrivateClass {
     final int finalInt;
     @NonNull
     String requiredString;
@@ -410,7 +410,7 @@ class AllArgsConstructorPrivate {
 }
 
 @AllArgsConstructor(staticName = "of")
-class AllArgsConstructorStaticName {
+class AllArgsConstructorStaticNameClass {
     final int finalInt;
     @NonNull
     String requiredString;
@@ -418,14 +418,72 @@ class AllArgsConstructorStaticName {
 }
 ```
 
-For this annotation can be specified:
+For these annotations can be specified:
 - Usage policy:`lombok.[allArgsConstructor|requiredArgsConstructor|noArgsConstructor|anyConstructor].flagUsage` = [warning | error]
 - Call super policy: `lombok.equalsAndHashCode.callSuper` = [call | skip | warn]
 - Annotations copyable from fields to getters/setters: `lombok.copyableAnnotations` = [A list of fully qualified types]
 - Use `@java.beans.ConstructorProperties` annotation on generated constructors: `lombok.anyConstructor.addConstructorProperties` = [true | false]
 
-## Data And Value
-TBD
+
+## Data And Value 
+Data And Value are used to wrap other annotations.
+
+**Data**: 
+- `@ToString`
+- `@EqualsAndHashCode`
+- `@Getter` on all fields
+- `@Setter` on all non-final fields
+- `@RequiredArgsConstructor`
+
+
+**Value**: 
+- `final` on class
+- `private` and `final` on all fields
+- `@ToString`
+- `@EqualsAndHashCode`
+- `@Getter` on all fields
+- `@AllArgsConstructor`
+
+```java
+@Data
+class DataClass {
+    final int finalInt;
+    @NonNull
+    @Setter(AccessLevel.PRIVATE)
+    String requiredString;
+    @ToString.Exclude
+    @Getter(AccessLevel.PRIVATE)
+    Object optional;
+}
+
+@Data(staticConstructor = "of")
+class DataStaticConstructorClass {
+    final int finalInt;
+    @NonNull
+    String requiredString;
+    Object optional;
+}
+
+@Value
+class ValueClass {
+    int finalInt = 0;
+    @NonNull
+    String requiredString;
+    @ToString.Exclude
+    Object optional;
+}
+
+@Value(staticConstructor = "of")
+class ValueStaticConstructorClass {
+    int finalInt = 0;
+    @NonNull
+    String requiredString;
+    Object optional;
+}
+```
+
+For these annotations can be specified:
+- Usage policy:`lombok.[data|value].flagUsage` = [warning | error]
 
 ## Builder
 TBD
