@@ -580,7 +580,23 @@ TBD
 TBD
 
 ## With
-TBD
+This annotation is used easily create a copy constructor given an instance with only one different field.
+
+With this annotation it is possible to define:
+- The visibility: `access`
+
+````java
+@With
+class WithClass {
+    String string;
+    int anInt;
+    @With(value = AccessLevel.NONE)
+    String hidden;
+}
+````
+
+For these annotations can be specified:
+- Usage policy:`lombok.builder.flagUsage` = [warning | error]
 
 ## Log
 TBD
