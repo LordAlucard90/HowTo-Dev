@@ -486,7 +486,92 @@ For these annotations can be specified:
 - Usage policy:`lombok.[data|value].flagUsage` = [warning | error]
 
 ## Builder
-TBD
+This annotation allows to create a readable way to create a new object using 
+'set like' method called between a `builder()` and a `build()` method.
+
+The annotation automatically implements:
+- a public static inner class builder
+- a set like method for each field on the builder class
+- a `builder()` method that returns a new instance of the inner builder class
+- a `build()` method on the inner builder class that create a new instance of the annotated class with the given parameters
+
+With this annotation it is possible to define:
+- The visibility: `access`
+- The builder method name: `builderMethodName`
+- The build method name: `buildMethodName`
+- The possibility to create a new builder from an instance using as default vales the instance ones: `toBuilder`
+
+It is also possible to define default values using `@Builder.Default` and 
+add elements of a list, set or map one by one using `@Singular`.
+
+```java
+@Builder
+class BuilderBaseClass {
+    static String staticString;
+    String aString;
+    int anInt;
+    boolean aBoolean;
+}
+
+@Builder(access = AccessLevel.PRIVATE)
+class BuilderPrivateClass {
+    private String aString;
+}
+
+@Builder(builderMethodName = "start", buildMethodName = "end")
+class BuilderDifferentMethodsNamesClass {
+    private String aString;
+}
+
+@Builder(toBuilder = true)
+class BuilderToBuilderClass {
+    String first;
+    String second;
+}
+
+@Builder
+class BuilderSingularClass {
+    List<String> multipleString;
+    @Singular("singularStrings")
+    List<String> singularStrings;
+}
+
+@Builder
+class BuilderDefaultClass {
+    String string;
+    @Builder.Default String stringWithDefault = "default";
+}
+
+class BuilderConstructorClass {
+    String aString;
+    int anInt;
+
+    @Builder
+    public BuilderConstructorClass(String aString, int anInt) {
+        this.aString = aString;
+        this.anInt = anInt;
+    }
+}
+
+class BuilderMethodClass {
+    String aString;
+    int anInt;
+
+    private BuilderMethodClass(){}
+
+    @Builder
+    public static BuilderMethodClass methodBuilder(String aString, int anInt) {
+        BuilderMethodClass obj = new BuilderMethodClass();
+        obj.aString = aString;
+        obj.anInt = anInt;
+        return obj;
+    }
+}
+```
+For these annotations can be specified:
+- Usage policy:`lombok.builder.flagUsage` = [warning | error]
+- Default builder class name:`lombok.builder.className` = 'Builder'
+- Automatically use singular annotation:`lombok.singular.auto` = [true | false]
 
 ## SneakyThrows
 TBD
