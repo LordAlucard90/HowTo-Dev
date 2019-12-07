@@ -27,7 +27,7 @@ All the available annotations can be found [here](https://projectlombok.org/feat
 
 Some annotations can be placed both on the class, on the filed or on the method.
 
-An example of these annotation usage can be also found [here](https://github.com/LordAlucard90/HowTo-Test/blob/master/lombok/readme.md)
+An example of these annotation usage can be also found [here](https://github.com/LordAlucard90/HowTo-Test/blob/master/java/lombok/readme.md)
 
 **Note:** if a method has already an user defined implementation then any code will be generated. 
 
@@ -599,8 +599,39 @@ For these annotations can be specified:
 - Usage policy:`lombok.builder.flagUsage` = [warning | error]
 
 ## Log
-TBD
+This annotation is used easily instantiate a logger.
+
+Same loggers supported are:
+- `CommonsLog`, `Flogger`, `JBossLog`, `Log`, `Log4j`, `Log4j2`, `Slf4j`, `XSlf4j`
+- `CustomLog` is used to set a custom logger.
+
+```java
+@Slf4j
+class LogClass {
+    public static void infoLog() {
+        log.info("info");
+    }
+
+    public static void warningLog() {
+        log.warn("warning");
+    }
+
+    public static void errorLog() {
+        log.error("error");
+    }
+
+    public static void debugLog() {
+        log.debug("debug");
+    }
+}
+```
+For these annotations can be specified:
+- Field name:`lombok.fieldName` = 'log'
+- If the logger is static:`lombok.log.fieldIsStatic` = [true | false] 
+- Custom logger declaration: `lombok.log.custom.declaration` = LoggerType LoggerFactoryType.loggerFactoryMethod(loggerFactoryMethodParams)(loggerFactoryMethodParams)
+- Usage policy:`lombok.[logger_name].flagUsage` = [warning | error]
 
 ## Experimental
-TBD
+
+Feature not still stable.
 
