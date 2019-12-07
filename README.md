@@ -6,6 +6,7 @@ How To (do the same things) Development Edition is a repository where I store al
 - [**Java**](./java/readme.md)
   - [Configuration](./java/java.md)
   - [Lombok](./java/lombok.md)
+  - [Model Mapper](./java/model_mapper.md)
 
 - [**JetBrains**](./jetbrains/readme.md)
   - [IntelliJ Idea](./jetbrains/intellij_idea.md)
