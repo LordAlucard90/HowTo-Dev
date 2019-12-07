@@ -27,7 +27,7 @@ All the available annotations can be found [here](https://projectlombok.org/feat
 
 Some annotations can be placed both on the class, on the filed or on the method.
 
-An example of these annotation usage can be also found [here](https://github.com/LordAlucard90/HowTo-Test/blob/master/java/lombok/readme.md)
+An example of these annotation usage can be also found [here](https://github.com/LordAlucard90/HowTo-Test/tree/master/java/lombok)
 
 **Note:** if a method has already an user defined implementation then any code will be generated. 
 

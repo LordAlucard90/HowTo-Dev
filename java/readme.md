@@ -22,3 +22,8 @@
     - [With](./lombok.md#with)
     - [Lok](./lombok.md#log)
     - [Experimental](./lombok.md#experimental)
+- [**Model Mapper**](./model_mapper.md)
+    - [Introduction](./model_mapper.md#introduction)
+    - [Mappings](./model_mapper.md#mappings)
+    - [Custom Mappings](./model_mapper.md#custom-mappings)
+    - [Configuration](./model_mapper.md#configuration)
