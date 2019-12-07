@@ -14,7 +14,7 @@
 - [SneakyThrows](#sneakythrows)
 - [Synchronized](#synchronized)
 - [With](#with)
-- [Lok](#log)
+- [Log](#log)
 - [Experimental](#experimental)
 
 ---
