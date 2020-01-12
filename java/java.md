@@ -8,7 +8,11 @@
 
 ## Installation
 
+It is possible to find all the current supported version on [Oracle official Java SE page](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
+
 #### Linux
+
+Go to the official page or type in the terminal:
 
 ```bash
 # java runtime rnvironment
@@ -22,20 +26,21 @@ sudo apt install openjdk-11-jdk # java 11
 
 #### Windows
 
-TBD
+Download the installer from the official page.
 
 ## Change JRE Version
 
 #### Linux
 
-Select the JRE versin executing
+Select the JRE version executing
+
 ```bash
 sudo update-alternatives --config java
 ```
 
 #### Windows
 
-change Java Home
+Change Java Home
 
 ## Set Java Home
 

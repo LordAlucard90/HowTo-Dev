@@ -21,7 +21,7 @@
 
 ## Add Project Module
 
-Useful do use an unique project for different services.
+Useful for having an unique project with different (micro)services.
 
 #### New Module
 
@@ -57,10 +57,12 @@ TBD
 8. `download` > `install` > `exit` >`automatic restart`
 9. `file` > `Project Structure`
 0. `SDKS` > `+` > `JDK` or `Project` > `new` > `JDK`
-1. depending on OS select sdk folder:
-  - Linux `~/.<intellij_version>/config/jdks/<installed_version>`
-  - Windows `~\<intellij_version>\config\jdks\<installed_version>
-2. `ok`
+11. depending on OS select sdk folder:
+
+    - Linux `~/.<intellij_version>/config/jdks/<installed_version>`
+    - Windows `~\<intellij_version>\config\jdks\<installed_version>
+
+12. `ok`
 
 
 #### From Other Source
