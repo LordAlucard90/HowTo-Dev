@@ -27,3 +27,5 @@
     - [Mappings](./model_mapper.md#mappings)
     - [Custom Mappings](./model_mapper.md#custom-mappings)
     - [Configuration](./model_mapper.md#configuration)
+- [Spring](./spring/readme.md)
+  - [OpenApi](./spring/openapi/readme.md)

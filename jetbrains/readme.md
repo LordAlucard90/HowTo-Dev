@@ -3,8 +3,8 @@
 
 ## Contents
 
-- **IntelliJ Idea**
-  - [Add Project Module](#add-project-module)
+- [**IntelliJ Idea**](intellij_idea.md)
+  - [Add Project Module](intellij_idea.md#add-project-module)
   - [Create Multiple Run Configurations](./intellij_idea.md#create-multiple-run-configurations)
   - [Configure Android SDK](./intellij_idea.md#configure-android-sdk)
   - [Enable Livereload](./intellij_idea.md#enable-livereload)
